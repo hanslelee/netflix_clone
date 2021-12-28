@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nexflix_clone/screen/home_sceen.dart';
+import 'package:nexflix_clone/screen/like_screen.dart';
 import 'package:nexflix_clone/screen/more_sceeen.dart';
+import 'package:nexflix_clone/screen/search_screen.dart';
 import 'package:nexflix_clone/widget/bottom_bar.dart';
 
 void main() {
@@ -19,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // Initialize FlutterFire
-    future: Firebase.initializeApp();
+    Firebase.initializeApp();
     return MaterialApp(
         title: 'Netflix Clone',
         theme: ThemeData(
@@ -33,16 +35,8 @@ class _MyAppState extends State<MyApp> {
             physics: NeverScrollableScrollPhysics(), // 사용자가 직접 스크롤 모션을 통해서 스크롤하는 기능을 막는다.
             children: [
               HomeScreen(),
-              Container(
-                child: Center(
-                  child:Text('search'),
-                ),
-              ),
-              Container(
-                child: Center(
-                  child:Text('save'),
-                ),
-              ),
+              SearchScreen(),
+              LikeScreen(),
               MoreScreen(),
             ],
           ),

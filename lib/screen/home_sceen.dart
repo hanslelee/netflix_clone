@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nexflix_clone/model/model_movie.dart';
@@ -19,6 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    // Initialize FlutterFire
+    Firebase.initializeApp();
     streamData = firestore.collection("movie").snapshots();
     //이때 movie는 firestore에서 작성한 컬렉션 이름
   }
